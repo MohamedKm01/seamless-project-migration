@@ -1,7 +1,9 @@
 
 :root{--red:#7a1f2b;--red2:#c2485a;--muted:#999;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-html,body{margin:0;background:#080808;color:#fff;font-family:Inter,system-ui,sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{margin:0;background-color:#0a0708;background-image:radial-gradient(130% 90% at 50% -12%,rgba(97,23,40,.55) 0%,rgba(63,15,26,.3) 36%,rgba(0,0,0,0) 68%),radial-gradient(120% 85% at 88% 108%,rgba(45,12,20,.5) 0%,rgba(0,0,0,0) 60%),linear-gradient(180deg,#160c11 0%,#0e0809 46%,#070607 100%);background-attachment:fixed;background-repeat:no-repeat;color:#fff;font-family:Inter,system-ui,sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{margin:0;background:transparent;color:#fff;font-family:Inter,system-ui,sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+@media (max-width:640px){html{background-image:radial-gradient(150% 70% at 50% -8%,rgba(97,23,40,.5) 0%,rgba(63,15,26,.26) 40%,rgba(0,0,0,0) 70%),radial-gradient(130% 60% at 88% 106%,rgba(45,12,20,.45) 0%,rgba(0,0,0,0) 62%),linear-gradient(180deg,#150c10 0%,#0d0809 48%,#070607 100%)}}
 .serif{font-family:'Cormorant Garamond',Georgia,serif}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 /* ambient */
