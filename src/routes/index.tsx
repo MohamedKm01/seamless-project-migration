@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import siteCss from "../site/2am.css?url";
 import { markup } from "../site/markup";
+import playerJs from "../site/2am-player.js?raw";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,7 +32,7 @@ function Index() {
     if (document.getElementById("twoam-player")) return;
     const s = document.createElement("script");
     s.id = "twoam-player";
-    s.src = "/2am-player.js";
+    s.textContent = playerJs;
     document.body.appendChild(s);
   }, []);
   return <div dangerouslySetInnerHTML={{ __html: markup }} />;
