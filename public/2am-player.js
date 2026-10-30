@@ -12,7 +12,11 @@ const T=[
  {title:'Lovesong',ar:'لوف سونغ',artist:'Adele',src:'/__l5e/assets-v1/66e2fe8d-3da3-4f67-8866-55da263ee418/08-Lovesong-Adele.mp3',cover:'/__l5e/assets-v1/56277e97-fbe8-4158-b2d8-d24b9f1286f8/cover-Lovesong.png'},
  {title:'Him & I',ar:'هيم آند آي',artist:'G-Eazy ft. Halsey',src:'/__l5e/assets-v1/2599aea9-9523-45d5-b520-358e5e100337/09-Him-and-I-G-Eazy-Halsey.mp3',cover:'/__l5e/assets-v1/c8fa321b-8216-49de-9e27-731e0cf502d1/cover-Him-and-I.png'},
  {title:'Hena Masr',ar:'هنا مصر .. هفضل كل مرة أجيلك',artist:'Mahmoud El Esseily & Bahaa Sultan',src:'/__l5e/assets-v1/936229fe-c799-4cd6-bfb9-7510b7698931/10-Hena-Masr-Mahmoud-El-Esseily-Bahaa-Sultan.mp3',cover:'/__l5e/assets-v1/bb696734-93f0-466b-b2b4-7a25ded5679a/cover-Hena-Masr-Banque-Misr.png'},
- {title:'Rad Saree3',ar:'رد سريع',artist:'Shabjdeed (شب جديد) feat. Riyadiyat (رياضيات)',src:'/__l5e/assets-v1/a44a1171-2d53-4346-b79b-bb982d02fd47/11-Rad-Saree3-Shabjdeed-Riyadiyat.mp3',cover:'/__l5e/assets-v1/bf94d1c3-5cf6-4cb5-a308-378053e0e8cf/cover-SULTAN-Rad-Saree3.png'}
+ {title:'Rad Saree3',ar:'رد سريع',artist:'Shabjdeed (شب جديد) feat. Riyadiyat (رياضيات)',src:'/__l5e/assets-v1/a44a1171-2d53-4346-b79b-bb982d02fd47/11-Rad-Saree3-Shabjdeed-Riyadiyat.mp3',cover:'/__l5e/assets-v1/bf94d1c3-5cf6-4cb5-a308-378053e0e8cf/cover-SULTAN-Rad-Saree3.png'},
+ {title:'Jaw Ard',ar:'جو أرض',artist:'Molotof & Shabjdeed (شب جديد)',src:'/__l5e/assets-v1/71a725c4-7f20-4082-8f30-85f7d4512085/12-Jaw-Ard-Molotof-Shabjdeed.mp3',cover:'/__l5e/assets-v1/72107ec6-1fff-4942-b06c-3432edbdbd3c/cover-Jaw-Ard.png'},
+ {title:'Billie Jean',ar:'بيلي جين',artist:'Michael Jackson',src:'/__l5e/assets-v1/21d959d7-60ff-43b9-bbb1-e73c06898cc0/13-Billie-Jean-Michael-Jackson.mp3',cover:'/__l5e/assets-v1/2a95a457-7f57-4ee5-8d29-c7471c9c5017/cover-Billie-Jean-Thriller.png'},
+ {title:'Timeless',ar:'تايملس',artist:'The Weeknd & Playboi Carti',src:'/__l5e/assets-v1/d0b99fdc-372b-4914-914d-dc4e788b983e/14-Timeless-The-Weeknd-Playboi-Carti.mp3',cover:'/__l5e/assets-v1/edaa03a1-2fe6-4619-9f08-f5d62c9c62a2/cover-Timeless.jpeg'},
+ {title:'Sawarekh',ar:'صواريخ',artist:'Shbash & The Synaptik',src:'/__l5e/assets-v1/2498e7e8-c2b5-4a95-b542-453ae9c63cc9/15-Sawarekh-Shbash-The-Synaptik.mp3',cover:'/__l5e/assets-v1/ff0d7503-1f79-4a88-a0e5-4c980383b956/cover-Sawarekh.png'}
 ].map((t,i)=>({...t,id:i}));
 const img=t=>`url('${t.cover}') center/cover no-repeat`;   // single quotes: safe inside style="..." attributes
 const tHTML=t=>`${t.title} <span class="ar" lang="ar" dir="rtl">${t.ar}</span>`;
