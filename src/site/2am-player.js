@@ -26,15 +26,28 @@ const $=id=>document.getElementById(id);
 $('logo').innerHTML=[...'2AM'].map((c,i)=>`<span class="l" style="--i:${i}">${c}</span>`).join('');
 $('head').innerHTML='The Songs We Used to Listen to Together.'.split(' ').map((w,i)=>`<span class="w" style="--i:${i}">${w}</span>`).join('');
 $('cnt').textContent=T.length+' songs';
-$('grid').innerHTML=T.map((t,i)=>`<li class="item" id="it${i}" style="--i:${i%3+Math.floor(i/3)*.4}">
+const HEART='<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>';
+// favorites: ids persist in localStorage across visits
+let favs=[];try{favs=JSON.parse(localStorage.getItem('2am-favs')||'[]').filter(i=>i>=0&&i<T.length)}catch(e){}
+const isFav=i=>favs.includes(i);
+const card=(i,p)=>{const t=T[i];return `<li class="item" id="${p}${i}" style="--i:${i%3+Math.floor(i/3)*.4}">
  <button class="thumb" onclick="play(${i})" aria-label="Play ${label(t)}"><div class="ci" style="background:${img(t)}"></div>
  <span class="badge"><span class="eq on"><b></b><b></b><b></b><b></b></span></span>
  <span class="pb"><svg viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M8 5v14l11-7z"/></svg></span></button>
- <div class="it serif">${tHTML(t)}</div><div class="ia">${t.artist}</div></li>`).join('');
+ <button class="favb${isFav(i)?' on':''}" data-i="${i}" onclick="fav(event,${i})" aria-label="Toggle favorite"><svg viewBox="0 0 24 24">${HEART}</svg></button>
+ <div class="it serif">${tHTML(t)}</div><div class="ia">${t.artist}</div></li>`};
+$('grid').innerHTML=T.map((t,i)=>card(i,'it')).join('');
+function saveFavs(){try{localStorage.setItem('2am-favs',JSON.stringify(favs))}catch(e){}}
+function fav(e,i){e.stopPropagation();favs=favs.includes(i)?favs.filter(x=>x!==i):[...favs,i];saveFavs();syncFavs()}
+function syncFavs(){document.querySelectorAll('.favb').forEach(b=>b.classList.toggle('on',isFav(+b.dataset.i)));
+ $('fcnt').textContent=favs.length+(favs.length===1?' song':' songs');
+ $('fempty').style.display=favs.length?'none':'block';
+ $('fgrid').innerHTML=favs.map(i=>card(i,'fi')).join('')}
+syncFavs();
 // views
 let busy=false;
 function go(id){if(busy)return;const c=document.querySelector('.view.on');if(c.id===id)return;busy=true;c.classList.add('out');
- setTimeout(()=>{c.classList.remove('on','out');$(id).classList.add('on');scrollTo(0,0);busy=false;$('navm').classList.toggle('on',id==='music');sync()},450)}
+ setTimeout(()=>{c.classList.remove('on','out');$(id).classList.add('on');scrollTo(0,0);busy=false;$('navm').classList.toggle('on',id==='music');$('navf').classList.toggle('on',id==='favs');sync()},450)}
 // real player: ONE shared HTML5 Audio element drives everything
 const PLAY='<path d="M8 5v14l11-7z"/>',PAUSE='<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
 const audio=new Audio();audio.preload='metadata';audio.volume=.8;
@@ -59,8 +72,8 @@ function step(d){if(cur<0)return play(0);play((cur+d+T.length)%T.length)}
 function sync(){const pl=isPlaying(),want=cur>=0&&!audio.paused&&!errored;
  $('vinyl').classList.toggle('play',pl);$('eq').classList.toggle('on',pl);
  $('ppi').innerHTML=$('mpi').innerHTML=want?PAUSE:PLAY;$('pp').setAttribute('aria-label',want?'Pause':'Play');
- T.forEach((_,i)=>{const it=$('it'+i),a=i===cur;it.classList.toggle('act',a);it.classList.toggle('pl',a&&pl);it.querySelector('.pb svg').innerHTML=a&&want?PAUSE:PLAY});
- $('mini').classList.toggle('on',cur>=0&&!$('music').classList.contains('on'));
+ T.forEach((_,i)=>{['it','fi'].forEach(p=>{const it=$(p+i);if(!it)return;const a=i===cur;it.classList.toggle('act',a);it.classList.toggle('pl',a&&pl);it.querySelector('.pb svg').innerHTML=a&&want?PAUSE:PLAY})});
+ $('mini').classList.toggle('on',cur>=0&&!$('music').classList.contains('on')&&!$('favs').classList.contains('on'));
  $('stat').textContent=errored?'Audio unavailable':loading?'Loading…':(cur>=0&&audio.paused)?'Paused':'Currently playing';
  if(cur>=0)document.title=label(T[cur])+' — '+T[cur].artist+' · 2AM'}
 function ui(){const d=audio.duration,ok=isFinite(d)&&d>0,p=ok?audio.currentTime/d*100:0,sk=$('seek');
@@ -96,4 +109,4 @@ if('mediaSession' in navigator){const ms=navigator.mediaSession,m=(a,f)=>{try{ms
 // featured track: preselect #1 on every visit and try to autoplay (if blocked, the play button stays ready)
 select(0);start();
 
-window.go=go;window.play=play;window.toggle=toggle;window.step=step;})();
+window.go=go;window.play=play;window.toggle=toggle;window.step=step;window.fav=fav;})();
