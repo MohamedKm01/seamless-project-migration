@@ -100,3 +100,14 @@ svg{width:22px;height:22px;fill:currentColor}
 input[type=range]:disabled{opacity:.45;cursor:default}
 .item:not(.pl) .badge .eq b{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+/* favorites */
+#favs{padding:40px 16px 140px}
+.navs{display:flex;gap:20px;align-items:center}
+.item{position:relative}
+.favb{position:absolute;top:10px;right:10px;z-index:2;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:rgba(255,255,255,.85);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);outline:1px solid rgba(255,255,255,.15);transition:transform .3s,color .3s,background .3s,outline-color .3s}
+.favb svg{width:16px;height:16px}
+.favb svg path{fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+.favb:hover{transform:scale(1.1);color:#fff}
+.favb.on{color:var(--red2);outline-color:rgba(194,72,90,.5);background:rgba(0,0,0,.6)}
+.favb.on svg path{fill:var(--red2)}
+.fempty{max-width:1000px;margin:48px auto 0;text-align:center;color:var(--muted);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase}
