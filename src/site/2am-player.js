@@ -1,7 +1,6 @@
 (function(){if(window.__2am)return;window.__2am=1;
 
 const T=[
- {title:'Ana SpongeBob',ar:'أنا سبونج بوب',artist:'Hamada Helal (حمادة هلال)',src:'/__l5e/assets-v1/7da980d1-fbbc-4317-a1f6-4957a64c1fa1/00-Ana-SpongeBob-Hamada-Helal.mp3',cover:'/__l5e/assets-v1/56604fd6-ade7-46ec-a814-fc68ddab57de/cover-Ana-SpongeBob-Matoolhash.png'},
  {title:'SLV',ar:'سلڤ',artist:'Shabjdeed (شب جديد)',src:'/__l5e/assets-v1/65e3b3a3-a9d8-4f48-80fe-9dd93e9f44d0/01-SLV-Shabjdeed.mp3',cover:'/__l5e/assets-v1/c8adb4cc-b2fa-49de-9fb3-4cfb991db706/cover-SLV-red-graffiti.png'},
  {title:'Qooli',ar:'قولي',artist:'BigSam',src:'/__l5e/assets-v1/2dc5acde-6676-400b-ad4e-ee1f269a4353/02-Qooli-BigSam.mp3',cover:'/__l5e/assets-v1/046144d1-17cb-4d77-bcf0-88ce19433e39/cover-Qooli-Drama-teal.png'},
  {title:'Shoft Kalam',ar:'شوفت كلام',artist:'Marwan Pablo, Lege-Cy & Hatem Bas',src:'/__l5e/assets-v1/67d00309-bb4b-4c5c-90cf-a14916128479/03-Shoft-Kalam-Marwan-Pablo-LegeCy-Hatem-Bas.mp3',cover:'/__l5e/assets-v1/b5273f9d-23e8-4a37-97e7-882b55a4bec1/cover-Shoft-Kalam-comic-eyes.png'},
