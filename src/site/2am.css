@@ -99,12 +99,4 @@ svg{width:22px;height:22px;fill:currentColor}
 .ar{font-family:"Segoe UI","Noto Naskh Arabic","Noto Sans Arabic",Tahoma,sans-serif;font-size:.5em;font-weight:400;color:var(--muted);unicode-bidi:isolate;margin-left:.3em}
 input[type=range]:disabled{opacity:.45;cursor:default}
 .item:not(.pl) .badge .eq b{animation-play-state:paused}
-/* fixed R badge */
-.r-badge{position:fixed;top:calc(68px + env(safe-area-inset-top,0px));right:clamp(12px,2vw,24px);z-index:50;display:flex;align-items:center;gap:6px;padding:5px 7px;border:1px solid rgba(215,241,108,.72);border-radius:8px;background:rgba(10,14,14,.9);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 18px rgba(215,241,108,.12);animation:r-float 6s ease-in-out infinite}
-.r-badge img{display:block;width:32px;height:40px;flex-shrink:0;border-radius:4px;object-fit:contain;object-position:center}
-.r-badge-copy{display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap}
-.r-badge-letter{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:.9;color:#d7f16c}
-.r-badge-date{font-size:.55rem;letter-spacing:.08em;color:rgba(242,245,224,.82);line-height:1}
-@keyframes r-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@media(max-width:639px){.r-badge{top:calc(62px + env(safe-area-inset-top,0px));right:12px;gap:5px;padding:5px 7px}.r-badge img{width:30px;height:38px}.r-badge-letter{font-size:1.1rem}.r-badge-date{font-size:.5rem}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
